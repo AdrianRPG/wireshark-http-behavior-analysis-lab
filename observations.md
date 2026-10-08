@@ -298,11 +298,11 @@ frame.number == 555 || frame.number == 556
 
 ### Evidence
 
-![Conditional GET request](../screenshots/conditional-get-request.png)
+![Conditional GET request](/screenshots/conditional-get-request.png)
 
 *Conditional HTTP GET request containing cache-validation headers including `If-None-Match` and `If-Modified-Since`.*
 
-![304 Not Modified response](../screenshots/conditional-get-response.png)
+![304 Not Modified response](/screenshots/conditional-get-response.png)
 
 *Server response confirming that the cached resource remains valid through an HTTP `304 Not Modified` status.*
 
@@ -455,7 +455,7 @@ http
 
 ### Evidence
 
-![TCP reassembly](../screenshots/tcp-reassembly.png)
+![TCP reassembly](/screenshots/tcp-reassembly.png)
 
 *Wireshark TCP reassembly information showing that a single HTTP response was reconstructed from four TCP segments with a total reassembled length of 4,861 bytes.*
 
@@ -642,7 +642,7 @@ The `Destination` and `Info` columns made it possible to correlate each request 
 
 ### Evidence
 
-![Embedded object requests](../screenshots/embedded-object-requests.png)
+![Embedded object requests](/screenshots/embedded-object-requests.png)
 
 *Multiple HTTP GET requests generated while loading a single web page, demonstrating retrieval of embedded resources from multiple network destinations.*
 
@@ -763,7 +763,7 @@ http.response.code == 301
 
 ### Evidence
 
-![HTTP redirect](../screenshots/http-redirect.png)
+![HTTP redirect](/screenshots/http-redirect.png)
 
 *HTTP redirect flow showing an initial request, a `301 Moved Permanently` response, and a subsequent request toward the redirected destination.*
 
@@ -1019,7 +1019,7 @@ http.request
 
 ### Evidence
 
-![HTTP Basic Authentication flow](../screenshots/basic-authentication-flow.png)
+![HTTP Basic Authentication flow](/screenshots/basic-authentication-flow.png)
 
 *HTTP Basic Authentication exchange showing the initial request, `401 Unauthorized` challenge, authenticated request containing an `Authorization` header, and successful `200 OK` response.*
 
