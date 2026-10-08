@@ -14,6 +14,22 @@ The analysis focused on identifying HTTP request and response behavior, interpre
 
 ---
 
+## Project Highlights
+
+| Analysis Area | Key Finding |
+|---|---|
+| HTTP Caching | Observed conditional GET requests using `If-None-Match` and `If-Modified-Since` |
+| Cache Validation | Identified a `304 Not Modified` response that avoided retransmitting an unchanged object |
+| TCP Reassembly | Analyzed one HTTP response reconstructed from four TCP segments |
+| Embedded Resources | Traced multiple HTTP GET requests generated while loading a single web page |
+| HTTP Redirection | Followed a `301 Moved Permanently` response and the subsequent redirected request |
+| Authentication | Examined a `401 Unauthorized` challenge followed by HTTP Basic Authentication |
+| Security | Evaluated why Basic Authentication should be protected using HTTPS/TLS |
+
+For detailed packet numbers, filters, and protocol observations, see [`observations.md`](observations.md).
+
+---
+
 ## Technologies & Tools
 
 | Technology | Purpose |
@@ -166,6 +182,10 @@ The server responded with:
 HTTP/1.1 301 Moved Permanently
 ```
 
+![HTTP redirect](screenshots/http-redirect.png)
+
+*HTTP redirection flow showing an initial resource request, a `301 Moved Permanently` response, and a subsequent request toward the redirected destination.*
+
 The browser then issued an additional request to:
 
 ```text
@@ -192,7 +212,7 @@ GET first image
 GET second image
 ```
 
-Because the second image request was not issued until after the first image response had been received, the observed image retrieval occurred sequentially rather than in parallel.
+Based on the packet ordering observed during the analysis, the embedded image retrieval behavior was consistent with sequential rather than parallel retrieval.
 
 This demonstrates how packet timestamps and request ordering can be used to infer browser network behavior.
 
